@@ -1,0 +1,159 @@
+{
+"code": 0,
+        "data": {
+            "avatarUtilConfig": {
+                "showAvatarMethodName": "H7",
+                "singleInstanceEnumClass": "f91.m"
+            },
+            "configId": 80,
+            "fakeDiceConfigMap": {
+                "8.0.56": {
+                    "clickListenerClass": "ro.q0",
+                    "dataFieldName": "A",
+                    "dataWrapperFieldName": "d",
+                    "randomIntClass": "com.tencent.mm.sdk.platformtools.k8",
+                    "randomIntMethodArgs": ["int", "int"],
+                    "randomIntMethodName": "P",
+                    "realDataFieldName": "b",
+                    "stackIdentity": "an1.h.c"
+                }
+            },
+            "forbidRevokeCircleMsgConfigMap": {
+                "8.0.56": {
+                    "fakeLikeConfig": {
+                        "createMenuClass": ["cq3.w", "cq3.e1", "cq3.e0", "cq3.a1", "cq3.j1"],
+                        "menuClickDataField": "d",
+                        "menuClickDataGetContextMethod": "b",
+                        "menuClickDataGetSnsInfoMethod": "I0",
+                        "menuClickDataGetWrapperMethod": "c",
+                        "menuClickInterface": "cm4.j4",
+                        "showMenuHelperClass": "ot4.r",
+                        "showMenuHelperMethod": ["j", "k"],
+                        "userBeanClass": "mg4.js5",
+                        "userFiledId": "d",
+                        "userFiledName": "e",
+                        "userSqlClass": "gk4.a0",
+                        "userSqlExecSqlMethod": "j"
+                    },
+                    "snsSqlExecSQLMethodName": "i",
+                    "snsSqlHelperClass": "com.tencent.mm.plugin.sns.storage.k2",
+                    "snsSqlRawQueryMethodName": "j",
+                    "snsSqlUpdateMethod": "e",
+                    "sqlBeanClass": "com.tencent.mm.protobuf.f",
+                    "transferSnsConfig": {
+                        "checkStringMethodName": "k",
+                        "fileListFieldName": "m",
+                        "fileMd5FieldName": "d",
+                        "getAccSnsPathClassName": "com.tencent.mm.plugin.sns.model.j4",
+                        "getAccSnsPathMethodName": "M7",
+                        "getDownloadVideoPathMethodName": "i",
+                        "getMediaFilePathClass": "com.tencent.mm.plugin.sns.model.d6",
+                        "getMediaFilePathMethodName": "d",
+                        "getSnsDirectPathMethodName": "m",
+                        "getSnsSightNameMethodName": "T",
+                        "getSnsThumbNameMethodName": "W",
+                        "getSnsTmpSightMethodName": "a0",
+                        "getSnsTmpThumbMethodName": "c0",
+                        "mediaUtilsClassName": "com.tencent.mm.plugin.sns.model.h1",
+                        "snsVideoClass": "com.tencent.mm.plugin.sns.model.b7",
+                        "stringUtilsClass": "com.tencent.mm.vfs.v6",
+                        "videoConfigUtilClass": "nn3.u0"
+                    }
+                }
+            },
+            "imPadConfigMap": {
+                "8.0.56": {
+                    "checkPadArgClass": "vt4.d0",
+                    "checkPadClass": "com.tencent.mm.ui.si",
+                    "checkPadMethodName": "C"
+                }
+            },
+            "logConfigMap": {
+                "8.0.56": {
+                    "commonLogMethodName": ["j", "e", "q"],
+                    "errorLogMethodName": "n",
+                    "logUtilClazz": "com.tencent.mm.sdk.platformtools.l2"
+                }
+            },
+            "revokeConfigMap": {
+                "8.0.56": {
+                    "conversationConstructorArgClazz": "qi4.i0",
+                    "conversationSqlHelperClazz": "com.tencent.mm.storage.s4",
+                    "messageClazz": "com.tencent.mm.storage.h9",
+                    "messageSqlHelperClazz": "com.tencent.mm.storage.j9",
+                    "messageSqlInsertMethodName": "O8",
+                    "revokeTip": "(已阻止)",
+                    "revokeTipFieldName": "x0",
+                    "revokeType": 268445456,
+                    "sqliteDatabaseClazz": "com.tencent.wcdb.database.SQLiteDatabase"
+                }
+            },
+            "scanQrConfigMap": {
+                "8.0.56": {
+                    "barStringHandlerClass": "lf3.k",
+                    "handleMethodName": "f",
+                    "methodNameArgsClass": [
+                        "android.app.Activity",
+                        "java.lang.String",
+                        "int",
+                        "int",
+                        "java.lang.String",
+                        "int",
+                        "int",
+                        "bf3.h",
+                        "com.tencent.mm.plugin.scanner.view.s",
+                        "android.os.Bundle",
+                        "boolean",
+                        "int",
+                        "boolean",
+                        "com.tencent.qbar.ScanIdentifyReportInfo",
+                        "mg4.t60"
+                    ]
+                }
+            },
+            "showTimeConfigMap": {
+                "8.0.56": {
+                    "contextWrapperFieldName": "f",
+                    "getTargetClassMethodName": "a",
+                    "holderHelperClass": "on4.f",
+                    "holderMethodName": "h",
+                    "holderMethodNameArgsClass": [
+                        "cv4.t0",
+                        "cv4.c",
+                        "int",
+                        "int",
+                        "boolean",
+                        "java.util.List"
+                    ],
+                    "isHasBgFieldName": "d",
+                    "isLightBgFieldName": "e",
+                    "messageFieldName": "e",
+                    "textColorFieldName": "a",
+                    "themeConfigClass": "pm4.e",
+                    "themeConfigFieldName": "m",
+                    "themeWrapperFieldName": "c",
+                    "viewFieldName": "d"
+                }
+            },
+            "themeHookerConfigMap": {
+                "8.0.56": {
+                    "bitmapUtilClass": "com.tencent.mm.sdk.platformtools.x",
+                    "drawableClassList": [
+                        {
+                            "className": "com.tencent.mm.pluginsdk.ui.x",
+                            "radiusFieldName": "s"
+                        },
+                        {
+                            "className": "g91.e",
+                            "radiusFieldName": "f",
+                            "recycleBitmapFieldName": "g"
+                        }
+                    ],
+                    "getCircleBitmapMethodName": "o0"
+                }
+            },
+            "updateVersionTip": "已更新配置信息，请手动重启微信或点击这里重启。",
+            "versionName": "8.0.56"
+        },
+        "message": Null
+    }
