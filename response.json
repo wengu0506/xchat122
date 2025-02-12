@@ -1,5 +1,5 @@
 {
-code: 0,
+"code": 0,
         "data": {
             "avatarUtilConfig": {
                 "showAvatarMethodName": "H7",
@@ -152,8 +152,8 @@ code: 0,
                     "getCircleBitmapMethodName": "o0"
                 }
             },
-            updateVersionTip: "已更新配置信息，请手动重启微信或点击这里重启。",
-            versionName: "8.0.56"
+            "updateVersionTip": "已更新配置信息，请手动重启微信或点击这里重启。",
+            "versionName": "8.0.56"
         },
-        message: null
+        "message": null
     }
