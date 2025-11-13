@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+    <html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>离线视频下载</title>
+        <link rel="shortcut icon" href="https://cdn-icons-png.flaticon.com/512/3121/3121602.png">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/css/bootstrap.min.css">
+    </head>
+    <body>
+        <header>
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <a class="navbar-brand" href=" ">Video Download</a >
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="/">视频下载 <span class="sr-only">(current)</span></a >
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/play">视频播放</a >
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="https://github.com/1314ysys/m3u8dudu">关于项目</a >
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+    
+        <main class="container">
+            <h2 class="text-center my-4">m3u8视频离线下载</h2>
+            <form method="POST" action="/download" onsubmit="return onSubmit();">
+                <div class="form-group">
+                    <label for="file_content">请输入要下载的m3u8地址链接：</label>
+                    <textarea class="form-control" id="file_content" name="file_content" rows="6" placeholder="每行一个链接，链接后空一格表示自定义标题"></textarea>
+                </div>
+                <div class="row justify-content-end">
+                    <div class="col-12 col-sm-4 col-md-3">
+                        <button type="submit" class="btn btn-primary mb-2 btn-block">开始下载</button>
+                    </div>
+                </div>
+            </form>
+            <hr>
+            <h5>下载日志：</h5>
+            <textarea id="log" class="form-control" style="height: 200px; overflow-y: scroll;" readonly></textarea>
+            <div class="row justify-content-end mt-3">
+                <div class="col-auto">
+                    <button class="btn btn-secondary btn-block" onclick="clearLog()">清空日志</button>
+                </div>
+            </div>
+        </main>
+    
+        <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.min.js"></script>
+    
+        <script>
+            function onSubmit() {
+                const fileContent = document.getElementById("file_content").value.trim();
+                if (!fileContent) {
+                    alert('没有输入链接');
+                    return false;
+                }
+                document.getElementById("file_content").value = "";
+    
+                alert('开始下载');
+                fetch('/download', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                    body: new URLSearchParams({ file_content: fileContent })
+                })
+                .then(response => response.text())
+                .then(data => {
+                    const log = document.getElementById("log");
+                    log.value += data;
+                    localStorage.setItem('log', log.value);
+                })
+                .catch(error => console.error('下载失败:', error));
+    
+                return false;
+            }
+    
+            let lastLineCount = 0;
+            function pollLog() {
+                fetch(`/log?last_line_count=${lastLineCount}`)
+                .then(response => response.text())
+                .then(data => {
+                    const logArea = document.getElementById('log');
+                    logArea.value = '';
+                    localStorage.removeItem('log');
+                    logArea.value += data;
+                    lastLineCount += data.trim().split('\n').length;
+                })
+                .catch(error => console.error('获取日志失败:', error));
+    
+                setTimeout(pollLog, 1000);
+            }
+    
+            window.onload = pollLog;
+    
+            function clearLog() {
+                if (confirm('确定要清空日志吗？')) {
+                    document.getElementById('log').value = '';
+                    localStorage.removeItem('log');
+    
+                    fetch('/clear_log')
+                    .then(response => response.text())
+                    .then(data => console.log('日志已清空:', data))
+                    .catch(error => console.error('清空日志失败:', error));
+                }
+            }
+        </script>    
+    </body>
+    </html>
